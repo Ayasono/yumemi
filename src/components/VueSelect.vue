@@ -28,7 +28,3 @@ function handleSelect(e: Event) {
   emit("update:value", value);
 }
 </script>
-
-<style scoped>
-/* 在这里添加 Tailwind CSS 类或自定义样式 */
-</style>

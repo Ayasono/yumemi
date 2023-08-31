@@ -8,10 +8,11 @@ export const getAllProvinces = () => {
 };
 
 interface IGetAllProvincesResponse {
-  data: any;
-  message: string;
-  result: {
-    prefCode: number;
-    prefName: string;
-  }[];
+  data: {
+    message: string;
+    result: {
+      prefCode: number;
+      prefName: string;
+    }[];
+  };
 }

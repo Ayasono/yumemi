@@ -59,11 +59,13 @@ const option: ComputedRef = computed(() => {
 });
 
 onMounted(() => {
-  const { setOptions, updateSize } = useEchart(chartContainer.value);
-  updateSize();
   watchEffect(async () => {
-    if (selectedProvinces.value.length === 0) return;
-    setOptions(option.value);
+    if (!chartContainer.value) return;
+    else {
+      const { setOptions, updateSize } = useEchart(chartContainer.value);
+      updateSize();
+      setOptions(option.value);
+    }
   });
 });
 
@@ -86,10 +88,15 @@ function handleChange(val: string) {
       <Select
         class="float-right"
         :items="options"
-        value="総人口"
+        :value="store.state.selectedComposition"
         @update:value="handleChange"
       />
     </div>
-    <div ref="chartContainer" class="w-full h-96"></div>
+    <div
+      v-if="selectedProvinces.length > 0"
+      ref="chartContainer"
+      class="w-full h-96"
+    ></div>
+    <p v-else class="text-center">一つを選んでください。</p>
   </figure>
 </template>

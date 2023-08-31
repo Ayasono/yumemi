@@ -11,6 +11,10 @@ export default function (el: HTMLElement) {
     echart.resize();
   };
 
+  const disposeInstance = () => {
+    echart.dispose();
+  };
+
   window.addEventListener("resize", () => {
     echart.resize();
   });
@@ -19,5 +23,6 @@ export default function (el: HTMLElement) {
     echart,
     setOptions,
     updateSize,
+    disposeInstance,
   };
 }
