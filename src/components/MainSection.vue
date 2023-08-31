@@ -8,12 +8,20 @@ defineComponent({
   name: "MainSection",
 });
 
-const provinces = reactive([]);
+const provinces: IGetAllProvincesResponse[] = reactive([]);
 getAllProvinces()
   .then((res) => provinces.push(...res.data.result))
   .catch((err) => alert(`Failed to get provinces list, code: ${err}`));
 
 provide("provinces", provinces);
+
+interface IGetAllProvincesResponse {
+  message: string;
+  result: {
+    prefCode: number;
+    prefName: string;
+  }[];
+}
 </script>
 
 <template>

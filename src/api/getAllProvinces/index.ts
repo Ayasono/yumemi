@@ -8,6 +8,7 @@ export const getAllProvinces = () => {
 };
 
 interface IGetAllProvincesResponse {
+  data: any;
   message: string;
   result: {
     prefCode: number;
