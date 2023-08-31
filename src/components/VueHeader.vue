@@ -7,7 +7,7 @@ defineComponent({
 </script>
 
 <template>
-  <header class="text-center text-2xl text-amber-300">
-    都道府県人口数一覧
+  <header class="text-center text-2xl text-amber-300 py-5">
+    気になる都道府県を選択してください
   </header>
 </template>

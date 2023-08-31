@@ -29,7 +29,11 @@ export default createStore({
       const index = state.selectedProvinces.findIndex(
         (obj) => obj.province === provincesName
       );
-      state.selectedProvinces.splice(index, 1);
+      if (index === -1) return;
+      else state.selectedProvinces.splice(index, 1);
+    },
+    changeSelectedComposition(state: IState, composition: string) {
+      state.selectedComposition = composition;
     },
   },
   actions: {},

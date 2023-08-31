@@ -10,6 +10,8 @@ import {
 } from "vue";
 import useEchart from "@/hooks/useEchart";
 import { useStore } from "vuex";
+import Select from "@/components/VueSelect.vue";
+import populationComposition from "@/constants/populationComposition";
 
 const store = useStore();
 
@@ -31,7 +33,7 @@ const option: ComputedRef = computed(() => {
   return {
     title: {
       text: "都道府県人口数一覧",
-      subtext: "人口数",
+      subtext: `${store.state.selectedComposition}人口数}`,
     },
     tooltip: {
       trigger: "axis",
@@ -64,6 +66,15 @@ onMounted(() => {
     setOptions(option.value);
   });
 });
+
+const options = Object.values(populationComposition).map((item) => ({
+  label: item,
+  value: item,
+}));
+
+function handleChange(val: string) {
+  store.commit("changeSelectedComposition", val);
+}
 </script>
 
 <template>
@@ -71,6 +82,14 @@ onMounted(() => {
     <figcaption class="text-xl text-center text-emerald-400">
       都道府県人口数一覧
     </figcaption>
+    <div class="w-full overflow-hidden">
+      <Select
+        class="float-right"
+        :items="options"
+        value="総人口"
+        @update:value="handleChange"
+      />
+    </div>
     <div ref="chartContainer" class="w-full h-96"></div>
   </figure>
 </template>

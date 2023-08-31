@@ -25,8 +25,8 @@ const props = defineProps({
 
 const store = useStore();
 const cachedPopulationData: { province: string; population: [] }[] = [];
-function updateSelectedProvinces(e) {
-  const isChecked = e.target.checked;
+function updateSelectedProvinces(e: Event) {
+  const isChecked = (e.target as HTMLInputElement).checked;
   if (isChecked) {
     if (cachedPopulationData.length > 0) {
       const cachedProvinceData = cachedPopulationData.find(
