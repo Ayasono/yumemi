@@ -24,15 +24,27 @@ const props = defineProps({
 });
 
 const store = useStore();
+const cachedPopulationData: { province: string; population: [] }[] = [];
 function updateSelectedProvinces(e) {
   const isChecked = e.target.checked;
   if (isChecked) {
+    if (cachedPopulationData.length > 0) {
+      const cachedProvinceData = cachedPopulationData.find(
+        (item) => item.province === props.province
+      );
+      if (cachedProvinceData) {
+        store.commit("setSelectedProvinces", cachedProvinceData);
+        return;
+      }
+    }
     getPopulationByProvinces(props.code)
       .then((res) => {
-        store.commit("setSelectedProvinces", {
+        const provinceData = {
           province: props.province,
           population: res.data.result.data,
-        });
+        };
+        store.commit("setSelectedProvinces", provinceData);
+        cachedPopulationData.push(provinceData);
       })
       .catch((err) => alert(`Failed to get population data, code: ${err}`));
   } else {
