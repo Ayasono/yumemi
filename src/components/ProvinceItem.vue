@@ -54,7 +54,7 @@ function updateSelectedProvinces(e: Event) {
 </script>
 
 <template>
-  <div class="flex justify-center items-center w-40">
+  <div class="flex justify-center items-center">
     <input
       type="checkbox"
       :id="province"
