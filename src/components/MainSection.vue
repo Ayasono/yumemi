@@ -16,11 +16,8 @@ getAllProvinces()
 provide("provinces", provinces);
 
 interface IGetAllProvincesResponse {
-  message: string;
-  result: {
-    prefCode: number;
-    prefName: string;
-  }[];
+  prefCode: number;
+  prefName: string;
 }
 </script>
 
