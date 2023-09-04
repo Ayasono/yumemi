@@ -1,29 +1,21 @@
-# japan_provinences
+# プロジェクト説明
 
-## Project setup
-```
-pnpm install
-```
+## Vercel でデプロイされています
+> https://yumemi-nine.vercel.app/
 
-### Compiles and hot-reloads for development
-```
-pnpm run serve
-```
+## プロジェクトのセットアップ
 
-### Compiles and minifies for production
+環境変数の設定, RESAS API の API Key の取得が必要です。
+```bash
+cp .env.example .env
 ```
-pnpm run build
-```
-
-### Run your unit tests
-```
-pnpm run test:unit
+それから、`.env` ファイルに API Key を設定してください。
+```bash
+npm install & npm run dev
 ```
 
-### Lints and fixes files
-```
-pnpm run lint
-```
+## プロジェクトハイライト
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Vue 3
+- Tailwind CSS
+- TypeScript
