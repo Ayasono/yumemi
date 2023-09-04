@@ -93,9 +93,9 @@ function handleChange(val: string) {
       />
     </div>
     <div
-      v-if="selectedProvinces.length > 0"
+      v-if="selectedProvinces?.length > 0"
       ref="chartContainer"
-      class="w-full h-96"
+      class="chart-container w-full h-96"
     ></div>
     <p v-else class="text-center">一つを選んでください。</p>
   </figure>

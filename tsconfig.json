@@ -25,7 +25,8 @@
       "esnext",
       "dom",
       "dom.iterable",
-      "scripthost"
+      "scripthost",
+      "es6"
     ]
   },
   "include": [
@@ -33,7 +34,9 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "../../../Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external/lib.es5.d.ts",
+    "../../../../../Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external/lib.es5.d.ts"
   ],
   "exclude": [
     "node_modules"
