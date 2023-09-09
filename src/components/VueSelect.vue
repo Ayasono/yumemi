@@ -14,8 +14,8 @@
 import { ref, defineProps, defineEmits } from "vue";
 
 const props = defineProps({
-  items: Array, // 接受数组对象作为参数
-  value: String, // 当前选中项的值
+  items: Array,
+  value: String,
 });
 
 const emit = defineEmits(["update:value"]);

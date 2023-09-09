@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { defineComponent, inject } from "vue";
 import ProvinceItem from "@/components/ProvinceItem.vue";
+import { IProvinceItem } from "@/types/ProvinceItemsTypes";
 
 defineComponent({
   name: "ProvinceMenu",
@@ -10,11 +11,6 @@ defineComponent({
 });
 
 const provinces: IProvinceItem[] | undefined = inject("provinces");
-
-interface IProvinceItem {
-  prefName: string;
-  prefCode: number;
-}
 </script>
 
 <template>

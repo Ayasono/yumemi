@@ -3,22 +3,18 @@ import { defineComponent, provide, reactive } from "vue";
 import ProvinceMenu from "@/components/ProvinceMenu.vue";
 import PopulationChart from "@/components/PopulationChart.vue";
 import { getAllProvinces } from "@/api/getAllProvinces";
+import { IProvinceItem } from "@/types/ProvinceItemsTypes";
 
 defineComponent({
   name: "MainSection",
 });
 
-const provinces: IGetAllProvincesResponse[] = reactive([]);
+const provinces: IProvinceItem[] = reactive([]);
 getAllProvinces()
   .then((res) => provinces.push(...res.data.result))
   .catch((err) => alert(`Failed to get provinces list, code: ${err}`));
 
 provide("provinces", provinces);
-
-interface IGetAllProvincesResponse {
-  prefCode: number;
-  prefName: string;
-}
 </script>
 
 <template>
