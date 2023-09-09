@@ -4,15 +4,5 @@ export const getAllProvinces = () => {
   return request({
     url: "/api/v1/prefectures",
     method: "get",
-  }) as Promise<IGetAllProvincesResponse>;
+  }) as Promise<ApiTypes.IGetAllProvincesResponse>;
 };
-
-interface IGetAllProvincesResponse {
-  data: {
-    message: string;
-    result: {
-      prefCode: number;
-      prefName: string;
-    }[];
-  };
-}
